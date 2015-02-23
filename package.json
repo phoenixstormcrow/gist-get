@@ -4,6 +4,7 @@
   "description": "Simple module to retrieve gists using the github api.",
   "main": "index.js",
   "scripts": {
+    "lint": "jshint index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

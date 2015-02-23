@@ -8,6 +8,7 @@ var request = require('request'),
 
 
 function get(id, opts, callback) {
+    "use strict";
     var ua = opts.userAgent || userAgent; // required by github api
     request({ url: gistURL + id,
               headers: { "User-Agent": ua }
@@ -26,19 +27,24 @@ function get(id, opts, callback) {
 }
 
 function getVersion(id, version, opts, callback) {
+    "use strict";
     get(id + '/' + version, opts, callback);
 }
 
 function latest(id, opts, callback) {
+    "use strict";
     get(id, opts, function (err, result) {
         var history, latest;
-        if (err) callback(err);
+        if (err) {
+            callback(err);
+        }
         if (result) {
             history = result.history;
             history.sort(function (a, b) {
                 // sort by committed_at date descending
                 a = new Date(a.committed_at);
                 b = new Date(b.committed_at);
+                /* jshint curly: false */
                 if (a<b) return 1;
                 if (a>b) return -1;
                 else return 0;
