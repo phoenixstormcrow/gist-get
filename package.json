@@ -1,0 +1,26 @@
+{
+  "name": "gist-get",
+  "version": "1.0.0",
+  "description": "Simple module to retrieve gists using the github api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phoenixstormcrow/gist-get"
+  },
+  "keywords": [
+    "github",
+    "gist"
+  ],
+  "author": "Phoenix Stormcrow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phoenixstormcrow/gist-get/issues"
+  },
+  "homepage": "https://github.com/phoenixstormcrow/gist-get",
+  "dependencies": {
+    "request": "^2.53.0"
+  }
+}
