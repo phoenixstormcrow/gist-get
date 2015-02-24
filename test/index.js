@@ -24,10 +24,39 @@ test('get test', function (t) {
     });
 });
 
+test('get test without opts', function (t) {
+    t.plan(4);
+
+    gist.get(gistID, function (err, res) {
+        if (err) throw (err);
+
+        t.ok(res, 'result defined');
+        t.equal(res.id, gistID, 'id matches');
+        t.equal(res.history.length, 11, 'history length 11');
+
+        fs.readFile(getFile, function(err, data) {
+            if (err) throw err;
+            var g = JSON.parse(data.toString());
+            t.deepEqual(res, g, 'result equals contents of get.json');
+        });
+    });
+});
+
 test('latest test', function (t) {
     t.plan(2);
 
     gist.latest(gistID, {}, function (err, res) {
+        if (err) throw err;
+
+        t.ok(res, 'result defined');
+        t.deepEqual(res, { version: latestVersion, committed_at: latestCommit }, 'result correct');
+    });
+});
+
+test('latest test without opts', function (t) {
+    t.plan(2);
+
+    gist.latest(gistID, function (err, res) {
         if (err) throw err;
 
         t.ok(res, 'result defined');
