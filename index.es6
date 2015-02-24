@@ -31,6 +31,12 @@ function get(id, opts, callback) {
                 if (response.statusCode === 200) {
                     callback(null, JSON.parse(body));
                 }
+                else {
+                    let code = response.statusCode,
+                        msg = response.statusMessage,
+                        err = new Error(`${code} ${msg}`);
+                    callback(err);
+                }
             }
     );
 }
