@@ -1,6 +1,6 @@
 {
   "name": "gist-get",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple module to retrieve gists using the github api.",
   "main": "index.js",
   "scripts": {
