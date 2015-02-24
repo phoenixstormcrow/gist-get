@@ -7,7 +7,8 @@
     "lint": "jshint index.js",
     "babel": "babel --blacklist useStrict index.es6 -o index.js",
     "test": "tape test/index.js",
-    "pretest": "npm run babel && npm run lint"
+    "pretest": "npm run babel && npm run lint",
+    "build": "npm test"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,8 @@
     "babel": "^4.4.5",
     "jshint": "^2.6.0",
     "tape": "^3.5.0"
+  },
+  "directories": {
+    "test": "test"
   }
 }
