@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "jshint index.js",
-    "babel": "babel --blacklist useStrict index.es6 -o index.js",
+    "babel": "babel --blacklist useStrict src/index.es6 -o index.js",
     "test": "tape test/index.js",
     "pretest": "npm run babel && npm run lint",
     "build": "npm test"
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/phoenixstormcrow/gist-get",
   "dependencies": {
+    "github-api-base": "^1.0.1",
     "request": "^2.53.0"
   },
   "devDependencies": {

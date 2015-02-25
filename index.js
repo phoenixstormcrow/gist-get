@@ -3,9 +3,11 @@
 */
 
 var request = require("request"),
-    gistURL = "https://api.github.com/gists/",
-    userAgent = "node-gist-get",
-    defaultOpts = { "User-Agent": userAgent };
+    base = require("github-api-base"),
+    url = "" + base + "gists/",
+    defaultOpts = {
+    headers: base.headers
+};
 
 function compare(a, b) {
     "use strict";
@@ -27,9 +29,9 @@ function get(id, opts, callback) {
         opts = defaultOpts;
         callback = arguments[1];
     }
-    var ua = opts.userAgent || userAgent; // required by github api
-    request({ url: "" + gistURL + "" + id,
-        headers: { "User-Agent": ua }
+    var headers = opts.headers || base.headers;
+    request({ url: "" + url + "" + id,
+        headers: headers
     }, function (error, response, body) {
         if (error) {
             callback(error);

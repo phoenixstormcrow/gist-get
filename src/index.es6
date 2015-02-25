@@ -2,13 +2,15 @@
     retrieves a gist using github api and request
 */
 
-var request = require("request"),
-    gistURL = "https://api.github.com/gists/",
-    userAgent = "node-gist-get",
-    defaultOpts = {"User-Agent": userAgent};
+var request = require('request'),
+    base = require('github-api-base'),
+    url = `${base}gists/`,
+    defaultOpts = {
+        headers: base.headers
+    };
 
 function compare(a, b) {
-    "use strict";
+    'use strict';
     /* jshint curly: false */
     /* compare two gist history entries by commit date */
     /* sorted in descending order */
@@ -20,14 +22,14 @@ function compare(a, b) {
 }
 
 function get(id, opts, callback) {
-    "use strict";
+    'use strict';
     if (arguments.length === 2 && typeof arguments[1] === 'function') {
         opts = defaultOpts;
         callback = arguments[1];
     }
-    var ua = opts.userAgent || userAgent; // required by github api
-    request({ url: `${gistURL}${id}`,
-              headers: { "User-Agent": ua }
+    var headers = opts.headers || base.headers;
+    request({ url: `${url}${id}`,
+              headers: headers
             },
             function (error, response, body) {
                 if (error) {
@@ -47,7 +49,7 @@ function get(id, opts, callback) {
 }
 
 function getVersion(id, version, opts, callback) {
-    "use strict";
+    'use strict';
     if (arguments.length === 3 && typeof arguments[2] === 'function') {
         opts = defaultOpts;
         callback = arguments[2];
@@ -57,7 +59,7 @@ function getVersion(id, version, opts, callback) {
 }
 
 function latest(id, opts, callback) {
-    "use strict";
+    'use strict';
     if (arguments.length === 2 && typeof arguments[1] === 'function') {
         opts = defaultOpts;
         callback = arguments[1];
