@@ -4,7 +4,7 @@
 
 var request = require("request"),
     base = require("github-api-base"),
-    url = "" + base + "gists/",
+    url = "" + base + "/gists/",
     defaultOpts = {
     headers: base.headers
 };

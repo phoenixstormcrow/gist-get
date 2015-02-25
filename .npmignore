@@ -1,0 +1,4 @@
+.gitignore
+test/
+src/
+npm-debug.log

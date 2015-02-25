@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/phoenixstormcrow/gist-get",
   "dependencies": {
-    "github-api-base": "^1.0.1",
+    "github-api-base": "^2.0.0",
     "request": "^2.53.0"
   },
   "devDependencies": {
